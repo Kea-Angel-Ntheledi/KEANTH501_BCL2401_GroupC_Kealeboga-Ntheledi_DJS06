@@ -66,3 +66,9 @@ console.log(nonCapeProvinces.length);
 const containsS = names.map((name) => name.includes("S") || name.includes("s"));
 console.log(containsS);
 
+//7. Creating Object Mapping
+const namesToProvinces = names.reduce((acc, name, index) => {
+  acc[name] = provinces[index];
+  return acc;
+}, {});
+console.log(namesToProvinces);
