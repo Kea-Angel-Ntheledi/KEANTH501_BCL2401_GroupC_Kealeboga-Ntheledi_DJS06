@@ -51,3 +51,7 @@ console.log(uppercaseProvinces);
 //3. Name Lengths
 const nameLengths = names.map((name) => name.length);
 console.log(nameLengths);
+
+//4. Sorting
+const sortedProvinces = [...provinces].sort(); //Use spread operator to avoid mutating the original array
+console.log(sortedProvinces);
