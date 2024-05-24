@@ -83,20 +83,13 @@ console.log(namesToProvinces);
     .filter((name) => name.product.length <= 5)
     .map((name) => name.product),
 
-// 3. Price Manipulation
-const prices = products.filter(product => product.price !== "").map(product => parseInt(product.price));
-const totalPrice = prices.reduce((acc, price) => acc + price, 0);
-console.log("Total price:", totalPrice);
-
-// 4. Concatenate Product Names
-const concatenatedNames = products.reduce((acc, product) => acc + product.product + " ", "");
-console.log("Concatenated product names:", concatenatedNames);
-
-// 5. Find Extremes in Prices
-const numericPrices = prices.filter(price => !isNaN(price));
-const highestPrice = Math.max(...numericPrices);
-const lowestPrice = Math.min(...numericPrices);
-console.log(`Highest: ${highestPrice}. Lowest: ${lowestPrice}.`);
+/// Filters out products without prices, converts string prices to numbers & calculates the total price.
+  totalPrice: products
+    .filter((product) => product.price && product.price !== " ") // Filter products with prices
+    .reduce((acc, product) => {
+      acc += parseInt(product.price); // Convert price to number and add to accumulator
+      return acc;
+    }, 0),
 
 // 6. Object Transformation
 const transformedProducts = Object.entries(products).reduce((acc, [index, { product, price }]) => {
