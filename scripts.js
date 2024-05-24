@@ -73,12 +73,11 @@ const namesToProvinces = names.reduce((acc, name, index) => {
 }, {});
 console.log(namesToProvinces);
 
-//Advanced
-// 1. Log Products
-console.log("Products:");
-products.forEach(product => {
-  console.log(product.product);
-});
+//Advanced exercises
+
+// Iterates over the products array & logs each product name
+  const productName = products.map((name) => name.product).join(", ")
+
 
 // 2. Filter by Name Length
 const filteredProducts = products.filter(product => product.product.length <= 5);
@@ -86,7 +85,7 @@ console.log("Products with names <= 5 characters:");
 console.log(filteredProducts);
 
 // 3. Price Manipulation
-const prices = products.filter(product => product.price !== "").map(product => parseFloat(product.price));
+const prices = products.filter(product => product.price !== "").map(product => parseInt(product.price));
 const totalPrice = prices.reduce((acc, price) => acc + price, 0);
 console.log("Total price:", totalPrice);
 
