@@ -97,6 +97,23 @@ console.log(namesToProvinces);
     ""
   ),
 
+  // Identify the highest and lowest-priced items & returns a string
+  priceExtremes: (() => {
+    const validProducts = products.filter(
+      (item) => !isNaN(item.price) && item.price !== "" && item.price !== " "
+    );
+    const prices = validProducts.map((item) => Number(item.price));
+
+    const highestPricedItem = validProducts.find(
+      (item) => Number(item.price) === Math.max(...prices)
+    );
+    const lowestPricedItem = validProducts.find(
+      (item) => Number(item.price) === Math.min(...prices)
+    );
+
+    return `Highest: ${highestPricedItem.product}. Lowest: ${lowestPricedItem.product}.`;
+  })(),
+
 
 // 6. Object Transformation
 const transformedProducts = Object.entries(products).reduce((acc, [index, { product, price }]) => {
