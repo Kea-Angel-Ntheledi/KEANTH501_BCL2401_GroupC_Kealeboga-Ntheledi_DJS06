@@ -80,3 +80,7 @@ products.forEach(product => {
   console.log(product.product);
 });
 
+//2. Filter by name length
+const filterdProducts = products.filter(product => product.product.length <= 5);
+console.log("Products with names <= 5 characters:");
+console.log(filteredProducts);
