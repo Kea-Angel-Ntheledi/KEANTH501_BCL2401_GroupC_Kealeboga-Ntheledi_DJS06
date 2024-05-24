@@ -91,6 +91,13 @@ console.log(namesToProvinces);
       return acc;
     }, 0),
 
+  // Concatenate all product names into a single string.
+  concatenatedProductNames: products.reduce(
+    (acc, product) => acc + product.product,
+    ""
+  ),
+
+
 // 6. Object Transformation
 const transformedProducts = Object.entries(products).reduce((acc, [index, { product, price }]) => {
   acc[index] = { name: product, cost: parseFloat(price) || 0 };
