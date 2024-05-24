@@ -89,3 +89,6 @@ console.log(filteredProducts);
 const prices = products.filter(product => product.price !== "").map(product => parseFloat(product.price));
 const totalPrice = prices.reduce((acc, price) => acc + price, 0);
 console.log("Total price:", totalPrice);
+
+//4. concatinate product names
+const concatenatedNames = products.reduce((acc, product) => acc + product.product + " ", "");
