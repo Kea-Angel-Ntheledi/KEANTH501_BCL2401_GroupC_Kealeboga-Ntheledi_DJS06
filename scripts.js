@@ -92,3 +92,4 @@ console.log("Total price:", totalPrice);
 
 //4. concatinate product names
 const concatenatedNames = products.reduce((acc, product) => acc + product.product + " ", "");
+console.log("Concatenated product names:", concatenatedNames);
