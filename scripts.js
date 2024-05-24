@@ -73,18 +73,18 @@ const namesToProvinces = names.reduce((acc, name, index) => {
 }, {});
 console.log(namesToProvinces);
 
-//Advanced exercises
+/* Advanced Exercises */
 
-// Iterates over the products array & logs each product name
+  // Iterates over the products array & logs each product name
   const productName = products.map((name) => name.product).join(", ")
 
-// Filters out products with names longer than 5 characters
+  // Filters out products with names longer than 5 characters
   productsFilteredByNameLength: products
     .filter((name) => name.product.length <= 5)
     .map((name) => name.product),
 
-/// Filters out products without prices, converts string prices to numbers & calculates the total price.
-  totalPrice: products
+  // Filters out products without prices, converts string prices to numbers & calculates the total price.
+    products
     .filter((product) => product.price && product.price !== " ") // Filter products with prices
     .reduce((acc, product) => {
       acc += parseInt(product.price); // Convert price to number and add to accumulator
@@ -92,13 +92,13 @@ console.log(namesToProvinces);
     }, 0),
 
   // Concatenate all product names into a single string.
-  concatenatedProductNames: products.reduce(
+   products.reduce(
     (acc, product) => acc + product.product,
     ""
   ),
 
   // Identify the highest and lowest-priced items & returns a string
-  priceExtremes: (() => {
+   (() => {
     const validProducts = products.filter(
       (item) => !isNaN(item.price) && item.price !== "" && item.price !== " "
     );
@@ -115,14 +115,13 @@ console.log(namesToProvinces);
   })(),
 
   // Recreate the products object with keys 'name' and 'cost' with their original values.
-  transformedProducts: products.reduce((acc, product) => {
+  products.reduce((acc, product) => {
     acc.push({
       name: product.product,
       cost: isNaN(parseInt(product.price)) ? 0 : parseInt(product.price),
     });
     return acc;
   }, []), // Wraps it in an array
-};
+
 
 console.log(productName, );
- 
