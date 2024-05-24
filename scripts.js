@@ -99,3 +99,10 @@ const numericPrices = prices.filter(price => !isNaN(price));
 const highestPrice = Math.max(...numericPrices);
 const lowestPrice = Math.min(...numericPrices);
 console.log( `Highest: ${highestPrice}. Lowest: ${lowestPrice}.`);
+
+//6. Object transformation
+const transformedProducts = Object.entries(products).reduce((acc,[index,{ product, price }] => {
+  acc[index] = { name: product, cost: parseFloat(price) || 0 };
+  return acc;
+}, {})
+console.log("Transformated products:", transformedProducts);
