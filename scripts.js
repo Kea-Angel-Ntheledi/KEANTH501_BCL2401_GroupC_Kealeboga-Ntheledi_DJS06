@@ -84,3 +84,8 @@ products.forEach(product => {
 const filterdProducts = products.filter(product => product.product.length <= 5);
 console.log("Products with names <= 5 characters:");
 console.log(filteredProducts);
+
+//3.Price manipulation
+const prices = products.filter(product => product.price !== "").map(product => parseFloat(product.price));
+const totalPrice = prices.reduce((acc, price) => acc + price, 0);
+console.log("Total price:", totalPrice);
