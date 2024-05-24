@@ -72,3 +72,11 @@ const namesToProvinces = names.reduce((acc, name, index) => {
   return acc;
 }, {});
 console.log(namesToProvinces);
+
+//Advanced
+//1. Log products
+console.log("Products:");
+products.forEach(product => {
+  console.log(product.product);
+});
+
