@@ -114,10 +114,15 @@ console.log(namesToProvinces);
     return `Highest: ${highestPricedItem.product}. Lowest: ${lowestPricedItem.product}.`;
   })(),
 
+  // Recreate the products object with keys 'name' and 'cost' with their original values.
+  transformedProducts: products.reduce((acc, product) => {
+    acc.push({
+      name: product.product,
+      cost: isNaN(parseInt(product.price)) ? 0 : parseInt(product.price),
+    });
+    return acc;
+  }, []), // Wraps it in an array
+};
 
-// 6. Object Transformation
-const transformedProducts = Object.entries(products).reduce((acc, [index, { product, price }]) => {
-  acc[index] = { name: product, cost: parseFloat(price) || 0 };
-  return acc;
-}, {});
-console.log("Transformed products:", transformedProducts);
+console.log(productName, );
+ 
