@@ -74,38 +74,35 @@ const namesToProvinces = names.reduce((acc, name, index) => {
 console.log(namesToProvinces);
 
 //Advanced
-//1. Log products
+// 1. Log Products
 console.log("Products:");
 products.forEach(product => {
   console.log(product.product);
 });
 
-//2. Filter by name length
-const filterdProducts = products.filter(product => product.product.length <= 5);
+// 2. Filter by Name Length
+const filteredProducts = products.filter(product => product.product.length <= 5);
 console.log("Products with names <= 5 characters:");
 console.log(filteredProducts);
 
-//3.Price manipulation
+// 3. Price Manipulation
 const prices = products.filter(product => product.price !== "").map(product => parseFloat(product.price));
 const totalPrice = prices.reduce((acc, price) => acc + price, 0);
 console.log("Total price:", totalPrice);
 
-//4. concatinate product names
+// 4. Concatenate Product Names
 const concatenatedNames = products.reduce((acc, product) => acc + product.product + " ", "");
 console.log("Concatenated product names:", concatenatedNames);
 
-//5. Find Extremes in Prices
+// 5. Find Extremes in Prices
 const numericPrices = prices.filter(price => !isNaN(price));
 const highestPrice = Math.max(...numericPrices);
 const lowestPrice = Math.min(...numericPrices);
-console.log( `Highest: ${highestPrice}. Lowest: ${lowestPrice}.`);
+console.log(`Highest: ${highestPrice}. Lowest: ${lowestPrice}.`);
 
-//6. Object transformation
-const transformedProducts = Object.entries(products).reduce(
-  (acc, [index, { product, price }]) => {
-    acc[index] = { name: product, cost: parseFloat(price) || 0 };
-    return acc;
-  },
-  {}
-);
+// 6. Object Transformation
+const transformedProducts = Object.entries(products).reduce((acc, [index, { product, price }]) => {
+  acc[index] = { name: product, cost: parseFloat(price) || 0 };
+  return acc;
+}, {});
 console.log("Transformed products:", transformedProducts);
